@@ -6,25 +6,39 @@ let game = (function() {
 let gameboard = (function() {
     let board = ['X', 'O', 'X', '', 'X'];
     let cont = document.querySelector(`#container`);
+    let marker = 'X';
 
-    cont.addEventListener('click', );
+    cont.addEventListener('click', (event) => {
+        let spot = event.target;
+        let index = spot.getAttribute('id').split('t')[1];
 
-    for (let i = 0; i < 9; i++) {
-        if (board[i]) {
-            let spot = document.querySelector(`#spot${i}`);
-            spot.textContent = board[i]
-        }        
+        if (board[index]);
+        else {
+            board[index] = marker;
+            marker = (marker == 'X') ? 'O' : 'X';
+            displayBoard();
+        }       
+    });
+
+    function displayBoard() {
+        for (let i = 0; i < 9; i++) {
+            if (board[i]) {
+                let spot = document.querySelector(`#spot${i}`);
+                spot.textContent = board[i]
+            }        
+        }
     }
+    displayBoard();
+    
 
     let p1 = createPlayer('user1');
-    let p2 = createPlayer('user2');
-    let marker = 'X';
+    let p2 = createPlayer('user2');    
 
     function pick() {
         let msg = (marker == 'X') ? 'Spot for X' : 'Spot for O';
         let spot = prompt(msg);
         board[spot] = marker;
-        marker = (marker == 'X') ? 'O' : 'X';
+        
     }
 
     for (let i = 0; i < 9; i++) {
