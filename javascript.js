@@ -4,20 +4,31 @@ let game = (function() {
 })();
 
 let gameboard = (function() {
-    let board = [];
+    let board = ['X', 'O', 'X', '', 'X'];
+    let cont = document.querySelector(`#container`);
+
+    cont.addEventListener('click', );
+
+    for (let i = 0; i < 9; i++) {
+        if (board[i]) {
+            let spot = document.querySelector(`#spot${i}`);
+            spot.textContent = board[i]
+        }        
+    }
 
     let p1 = createPlayer('user1');
     let p2 = createPlayer('user2');
-    let marker = 'x';
+    let marker = 'X';
 
     function pick() {
-        let msg = (marker == 'x') ? 'Spot for x' : 'Spot for o';
+        let msg = (marker == 'X') ? 'Spot for X' : 'Spot for O';
         let spot = prompt(msg);
         board[spot] = marker;
-        marker = (marker == 'x') ? 'o' : 'x';
+        marker = (marker == 'X') ? 'O' : 'X';
     }
 
     for (let i = 0; i < 9; i++) {
+        break
         pick();
         function check(marker) {
             if (board[0] === marker && board[1] === marker && board[2] === marker) {
@@ -39,7 +50,7 @@ let gameboard = (function() {
             }
         }
         
-        let end = check('x');
+        let end = check('X');
         if (end === 'end') break;
         else if (i === 8) {
             console.log('draw');
