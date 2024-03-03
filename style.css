@@ -1,13 +1,18 @@
 body {
     background-color: #151515;
-    margin: 0;
     padding: 0;
+    margin: 0;
     display: flex;
     justify-content: center;
 }
 
+#wrapper {
+    margin: 0 auto;
+}
+
 #container {
-    margin-top: 150px;
+    margin-top: 50px;
+    margin-bottom: 25px;
     display: grid;
     grid-template: repeat(3, 100px) / repeat(3, 100px);
     gap: 10px;
@@ -21,4 +26,12 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+}
+
+#display {
+    color: white;
+    font-size: 2rem;
+    font-family: 'Courier New', monospace;
+    margin-top: 50px;
+    min-height: 40px;
 }
